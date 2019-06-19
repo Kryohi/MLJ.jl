@@ -24,12 +24,12 @@ mutable struct Machine{M<:Model} <: AbstractMachine{M}
             T <: input_scitype_union(model) ||
                 error("The scitypes of elements of X, in machine(model, X, y), "*
                       "should be a subtype of $(input_scitype_union(model)). ")
-            y isa AbstractVector ||
-                error("The y, in machine(model, X, y), should be an AbstractVector "*
-                      "(possibly of tuples). ")
-            scitype_union(y) <: target_scitype_union(model) || 
-                error("The scitype of elements of y, in machine(model, X, y), "*
-                      "should be a subtype of $(target_scitype_union(model)). ")
+            # y isa AbstractVector ||
+            #     error("The y, in machine(model, X, y), should be an AbstractVector "*
+            #           "(possibly of tuples). ")
+            # scitype_union(y) <: target_scitype_union(model) || 
+            #     error("The scitype of elements of y, in machine(model, X, y), "*
+            #           "should be a subtype of $(target_scitype_union(model)). ")
         end
         if M <: Unsupervised
             length(args) == 1 ||
